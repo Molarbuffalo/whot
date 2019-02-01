@@ -10,7 +10,7 @@
 
 ### 0. URL/IP port scan
 
-Either type **port-scan <address>**, then manually enter the port (range), or
+Either type **port-scan <address>** then manually enter the port (range), or
 type **port-scan <address>:port(range)**. Output is both the list of found
 open ports and the common uses for them.
 
@@ -79,4 +79,42 @@ Example output:
 
     > $ geo portquiz.net
     [+] 5.196.70.86 is from FR and is in Hauts-de-France and is located in Gravelines
+
+### 4. emailspam
+
+This will spam a targeted email account with your email body and subject.
+
+Example format:
+
+    emailspam
+
+Example output:
+
+    > $ emailspam
+    Please enter your email: yeet@gmail.com
+    Please enter your password: yeetmas
+    Please enter the subject of the email: d
+    Please input your message: d
+    Please enter the targets email:  yeet2@gmail.com
+    Number Of Emails: 999
+
+### 5. gmailbrute
+
+This will brute a targeted gmail account (Must Be Gmail) using the dictionary
+attack method, you must have a password list.
+
+Example format:
+
+    gmailbrute
+
+Example output:
+
+    > $ gmailbrute
+    Target: yeet@gmail.com
+    Password List: yeet.txt
+
+### Contributors
+
+[tira](https://github.com/tira)
+
 # whot
