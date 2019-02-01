@@ -82,7 +82,7 @@ Example output:
 
 ### 4. emailspam
 
-This will spam a targeted email account with your email body and subject.
+This will spam a targeted email with a chosen message and subject provided by you in the subjust.
 
 Example format:
 
@@ -93,14 +93,14 @@ Example output:
     > $ emailspam
     Please enter your email: yeet@gmail.com
     Please enter your password: yeetmas
-    Please enter the subject of the email: d
-    Please input your message: d
+    Please enter the subject of the email: Hey Mate enjoy these 900 Emails
+    Please input your message: yeet yeet yeet, enjoy the emails
     Please enter the targets email:  yeet2@gmail.com
     Number Of Emails: 999
 
 ### 5. gmailbrute
 
-This will brute a targeted gmail account (Must Be Gmail) using the dictionary
+This will brute a targeted gmail account using the dictionary
 attack method, you must have a password list.
 
 Example format:
