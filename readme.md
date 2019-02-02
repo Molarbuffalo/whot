@@ -80,7 +80,7 @@ Example output:
     > $ geo portquiz.net
     [+] 5.196.70.86 is from FR and is in Hauts-de-France and is located in Gravelines
 
-### 4. emailspam
+### 5. emailspam
 
 This will spam a targeted email with a chosen message and subject provided by you in the subjust.
 
@@ -98,7 +98,7 @@ Example output:
     Please enter the targets email:  yeet2@gmail.com
     Number Of Emails: 999
 
-### 5. gmailbrute
+### 6. gmailbrute
 
 This will brute a targeted gmail account using the dictionary
 attack method, you must have a password list.
@@ -113,7 +113,7 @@ Example output:
     Target: yeet@gmail.com
     Password List: yeet.txt
 
-### 6. scrape
+### 7. scrape
 
 This will scrape your desired amount of proxies and display them.
 
@@ -131,10 +131,10 @@ Example output:
 
 ### Change Log
 
-V1.0
+V 0.1
     Added Features, Geo Locate, Resolver, Port-Scan, Gmailbrute, emailspam, whois, phone number look up
 
-V2.0
+V 0.2
     Added the 'scrape' function whcih will scrape your desired amount of proxies, the gmail brute also now proxie swaps avoiding the google automation blocker.
 
 ### Contributors
