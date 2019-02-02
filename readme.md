@@ -113,6 +113,30 @@ Example output:
     Target: yeet@gmail.com
     Password List: yeet.txt
 
+### 6. scrape
+
+This will scrape your desired amount of proxies and display them.
+
+Example format:
+
+    scrape <number of proxies>
+
+Example output:
+
+    > $ scrape 5
+    [+] HTTP Proxies: 5.59.141.78:45629
+    [+] HTTP Proxies: 212.87.248.11:40762
+    [+] HTTP Proxies: 101.255.63.22:43929
+    [+] HTTP Proxies: 118.174.233.110:47806
+
+### Change Log
+
+V1.0
+    Added Features, Geo Locate, Resolver, Port-Scan, Gmailbrute, emailspam, whois, phone number look up
+
+V2.0
+    Added the 'scrape' function whcih will scrape your desired amount of proxies, the gmail brute also now proxie swaps avoiding the google automation blocker.
+
 ### Contributors
 
 [tira](https://github.com/tira)

